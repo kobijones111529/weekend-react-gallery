@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+import { Router } from 'express'
+const router = Router()
 const galleryItems = require('../modules/gallery.data')
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
@@ -21,4 +21,4 @@ router.get('/', (req, res) => {
   res.send(galleryItems)
 }) // END GET Route
 
-module.exports = router
+export default router
