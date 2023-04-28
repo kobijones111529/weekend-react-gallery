@@ -1,6 +1,7 @@
 import { Router } from 'express'
+import galleryItems from '../modules/gallery.data.js'
+
 const router = Router()
-const galleryItems = require('../modules/gallery.data')
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
