@@ -4,7 +4,7 @@ const id = (function * () {
   }
 })()
 
-const data = [
+let data = [
   {
     path: 'images/goat_small.jpg',
     description: 'A image',
@@ -18,9 +18,10 @@ const data = [
 export const getGallary = async () => data
 
 export const addLike = async id => {
-  const index = data.findIndex(item => item.id === id)
-
-  if (index < 0) return
-
-  data[index].likes += 1
+  data = data.map(item =>
+    item.id === id
+      ? { ...item, likes: item.likes + 1 }
+      : item
+  )
+  console.log(data)
 }
