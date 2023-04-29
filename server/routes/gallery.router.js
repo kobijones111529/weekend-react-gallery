@@ -7,8 +7,7 @@ const router = Router()
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-  console.log(req.params)
-  const galleryId = req.params.id
+  const galleryId = Number(req.params.id)
   for (const galleryItem of galleryItems) {
     if (galleryItem.id === galleryId) {
       galleryItem.likes += 1
