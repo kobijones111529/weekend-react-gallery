@@ -12,7 +12,7 @@ let data = [
   }
 ]
   .map(image => {
-    return { id: id.next().value, ...image }
+    return { ...image, id: id.next().value }
   })
 
 export const getGallery = async () => data
@@ -24,4 +24,8 @@ export const addLike = async id => {
       : item
   )
   console.log(data)
+}
+
+export const addPhoto = async photo => {
+  data = [...data, { ...photo, id: id.next().value }]
 }
