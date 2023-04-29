@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styles from './GallaryItem.module.css'
+import styles from './GalleryItem.module.css'
 
-function GallaryItem (props) {
+function GalleryItem (props) {
   const [flipped, setFlipped] = useState(false)
 
   const showLikes = likes => {
@@ -38,11 +38,11 @@ function GallaryItem (props) {
   )
 }
 
-GallaryItem.propTypes = {
+GalleryItem.propTypes = {
   path: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
   addLike: PropTypes.func.isRequired
 }
 
-export default GallaryItem
+export default GalleryItem

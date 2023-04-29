@@ -1,13 +1,13 @@
-import GallaryItem from '../GallaryItem/GallaryItem'
+import GalleryItem from '../GalleryItem/GalleryItem'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function GallaryList (props) {
+function GalleryList (props) {
   return (
     <ul>
-      {props.gallary.map(item =>
+      {props.gallery.map(item =>
         <li key={item.id}>
-          <GallaryItem
+          <GalleryItem
             path={item.path}
             description={item.description}
             likes={item.likes}
@@ -19,9 +19,9 @@ function GallaryList (props) {
   )
 }
 
-GallaryList.propTypes = {
-  gallary: PropTypes.arrayOf(PropTypes.object).isRequired,
+GalleryList.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.object).isRequired,
   addLike: PropTypes.func.isRequired
 }
 
-export default GallaryList
+export default GalleryList

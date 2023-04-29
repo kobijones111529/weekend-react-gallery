@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const getGallary = () => axios({
+export const getGallery = () => axios({
   method: 'GET',
   url: '/gallery'
 })
