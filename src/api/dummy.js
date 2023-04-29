@@ -23,9 +23,8 @@ export const addLike = async id => {
       ? { ...item, likes: item.likes + 1 }
       : item
   )
-  console.log(data)
 }
 
 export const addPhoto = async photo => {
-  data = [...data, { ...photo, id: id.next().value }]
+  data = [...data, { ...photo, id: id.next().value, likes: 0 }]
 }

@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-function AddPhotoForm () {
+function AddPhotoForm (props) {
   const [pathInput, setPathInput] = useState('')
   const [descriptionInput, setDescriptionInput] = useState('')
 
   const handleAdd = event => {
     event.preventDefault()
+
+    props.addPhoto({ path: pathInput, description: descriptionInput })
   }
 
   return (
@@ -15,6 +18,10 @@ function AddPhotoForm () {
       <button type="submit">Add photo</button>
     </form>
   )
+}
+
+AddPhotoForm.propTypes = {
+  addPhoto: PropTypes.func.isRequired
 }
 
 export default AddPhotoForm
