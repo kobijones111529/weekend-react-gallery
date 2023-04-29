@@ -1,11 +1,11 @@
 import './App.css'
-import * as DummyAPI from '../../api/dummy'
+import * as ServerAPI from '../../api/server'
 import React, { useEffect, useState } from 'react'
 import GallaryList from '../GallaryList/GallaryList'
 
 function App () {
-  const getGallary = DummyAPI.getGallary
-  const addLike = DummyAPI.addLike
+  const getGallary = ServerAPI.getGallary
+  const addLike = ServerAPI.addLike
 
   const [gallary, setGallary] = useState([])
 
