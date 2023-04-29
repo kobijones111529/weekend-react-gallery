@@ -1,25 +1,25 @@
 import './App.css'
 import * as ServerAPI from '../../api/server'
 import React, { useEffect, useState } from 'react'
-import GallaryList from '../GallaryList/GallaryList'
+import GalleryList from '../GalleryList/GalleryList'
 
 function App () {
-  const getGallary = ServerAPI.getGallary
+  const getGallery = ServerAPI.getGallery
   const addLike = ServerAPI.addLike
 
-  const [gallary, setGallary] = useState([])
+  const [gallery, setGallery] = useState([])
 
   const handleAddLike = id => {
     addLike(id)
-      .then(() => getGallary())
-      .then(gallary => {
-        setGallary(gallary)
+      .then(() => getGallery())
+      .then(gallery => {
+        setGallery(gallery)
       })
   }
 
   useEffect(() => async () => {
-    const gallary = await getGallary()
-    setGallary(gallary)
+    const gallery = await getGallery()
+    setGallery(gallery)
   }, [])
 
   return (
@@ -27,7 +27,7 @@ function App () {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
-      <GallaryList gallary={gallary} addLike={handleAddLike} />
+      <GalleryList gallery={gallery} addLike={handleAddLike} />
     </div>
   )
 }

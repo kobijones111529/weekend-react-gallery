@@ -15,7 +15,7 @@ let data = [
     return { id: id.next().value, ...image }
   })
 
-export const getGallary = async () => data
+export const getGallery = async () => data
 
 export const addLike = async id => {
   data = data.map(item =>
