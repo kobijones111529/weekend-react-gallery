@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import Button from '@mui/material/Button'
 import PropTypes from 'prop-types'
+import TextField from '@mui/material/TextField'
 
 function AddPhotoForm (props) {
   const [pathInput, setPathInput] = useState('')
@@ -13,9 +15,9 @@ function AddPhotoForm (props) {
 
   return (
     <form onSubmit={handleAdd}>
-      <input placeholder={'Path'} value={pathInput} onChange={event => setPathInput(event.target.value)} />
-      <input placeholder={'Description'} value={descriptionInput} onChange={event => setDescriptionInput(event.target.value)} />
-      <button type="submit">Add photo</button>
+      <TextField variant="outlined" label={'Path'} value={pathInput} onChange={event => setPathInput(event.target.value)} />
+      <TextField variant="outlined" label={'Description'} value={descriptionInput} onChange={event => setDescriptionInput(event.target.value)} />
+      <Button variant="contained" type="submit">Add photo</Button>
     </form>
   )
 }
