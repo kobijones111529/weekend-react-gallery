@@ -1,4 +1,4 @@
-import { addLike, addPhoto, getGallery } from '../modules/gallery.data.js'
+import { addLike, addPhoto, getGallery } from '../modules/database.js'
 import { Router } from 'express'
 
 const router = Router()
@@ -19,7 +19,7 @@ router.put('/like/:id', (req, res) => {
 }) // END PUT Route
 
 // GET Route
-router.get('/', (req, res) => {
+router.get('/', (_, res) => {
   getGallery()
     .then(gallery => {
       res.send(gallery)
