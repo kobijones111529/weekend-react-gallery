@@ -4,6 +4,7 @@ import * as ServerAPI from '../../api/server'
 import React, { useEffect, useState } from 'react'
 import AddPhotoForm from '../AddPhotoForm/AddPhotoForm'
 import GalleryList from '../GalleryList/GalleryList'
+import Stack from '@mui/material/Stack'
 
 function App () {
   const getGallery = ServerAPI.getGallery
@@ -34,13 +35,13 @@ function App () {
   }, [])
 
   return (
-    <div className="App">
+    <Stack className="App" spacing={4}>
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
       <AddPhotoForm addPhoto={handleAddPhoto} />
       <GalleryList gallery={gallery} addLike={handleAddLike} />
-    </div>
+    </Stack>
   )
 }
 
