@@ -1,5 +1,5 @@
+import { addLike, addPhoto, getGallery } from '../modules/database.js'
 import { Router } from 'express'
-import galleryItems from '../modules/gallery.data.js'
 
 const router = Router()
 
@@ -8,31 +8,38 @@ const router = Router()
 // PUT Route
 router.put('/like/:id', (req, res) => {
   const galleryId = Number(req.params.id)
-  for (const galleryItem of galleryItems) {
-    if (galleryItem.id === galleryId) {
-      galleryItem.likes += 1
-    }
-  }
-  res.sendStatus(200)
+  addLike(galleryId)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
 }) // END PUT Route
 
 // GET Route
-router.get('/', (req, res) => {
-  res.send(galleryItems)
+router.get('/', (_, res) => {
+  getGallery()
+    .then(gallery => {
+      res.send(gallery)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
 }) // END GET Route
 
 router.post('/', (req, res) => {
   const photo = req.body
-  galleryItems.push({
-    ...photo,
-    id:
-      galleryItems
-        .reduce((max, { id }) =>
-          Math.max(max, id), 1
-        ) + 1,
-    likes: 0
-  })
-  res.sendStatus(200)
+  addPhoto(photo)
+    .then(() => {
+      res.sendStatus(201)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
 })
 
 export default router
