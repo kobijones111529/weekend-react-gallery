@@ -21,4 +21,18 @@ router.get('/', (req, res) => {
   res.send(galleryItems)
 }) // END GET Route
 
+router.post('/', (req, res) => {
+  const photo = req.body
+  galleryItems.push({
+    ...photo,
+    id:
+      galleryItems
+        .reduce((max, { id }) =>
+          Math.max(max, id), 1
+        ) + 1,
+    likes: 0
+  })
+  res.sendStatus(200)
+})
+
 export default router

@@ -10,3 +10,9 @@ export const addLike = id => axios({
   method: 'PUT',
   url: `/gallery/like/${id}`
 })
+
+export const addPhoto = photo => axios({
+  method: 'POST',
+  url: '/gallery',
+  data: photo
+})
