@@ -6,7 +6,7 @@ const pool = new pg.Pool(
         host: 'db.bit.io',
         port: 5432,
         database: 'kobijones/react_gallery',
-        user: 'vercel',
+        user: 'heroku',
         password: process.env.DB_KEY,
         ssl: true
       }
