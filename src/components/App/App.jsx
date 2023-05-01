@@ -29,9 +29,11 @@ function App () {
       })
   }
 
-  useEffect(() => async () => {
-    const gallery = await getGallery()
-    setGallery(gallery)
+  useEffect(() => {
+    getGallery()
+      .then(gallery => {
+        setGallery(gallery)
+      })
   }, [])
 
   return (
